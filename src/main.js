@@ -1,5 +1,9 @@
+var libxmljs = require('libxmljs-mt');
+
 function convertXml(xml) {
-	return 2;
+	var parsedXml = libxmljs.parseXml(xml);
+
+	return y;
 }
 
 module.exports = {
