@@ -1,12 +1,13 @@
 var libxmljs = require('libxmljs-mt');
 var fs = require('file-system');
 
-
-convertXml(process.argv.slice(2)[0]);
+function readXml(xml) {
+    var passsedXml = fs.readFileSync(xml, "utf-8");
+    convertXml(passsedXml);
+}
 
 function convertXml(xml) {
-    var passsedXml = fs.readFileSync(xml, "utf-8");
-	var parsedXml = libxmljs.parseXml(passsedXml);
+	var parsedXml = libxmljs.parseXml(xml);
 	var gchild = parsedXml.get('//CD//TITLE').text();
 
 	console.log(gchild);
@@ -14,5 +15,6 @@ function convertXml(xml) {
 }
 
 module.exports = {
-	convertXml: convertXml
+	convertXml: convertXml,
+	readXml: readXml
 }
