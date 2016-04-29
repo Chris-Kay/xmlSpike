@@ -3,7 +3,10 @@ var libxmljs = require('libxmljs-mt');
 function convertXml(xml) {
 	var parsedXml = libxmljs.parseXml(xml);
 
-	return y;
+	var gchild = parsedXml.get('//CD//TITLE').text();
+
+
+	return gchild;
 }
 
 module.exports = {
